@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "noImplicitAny":true,
+    "outDir": "dict",  //compale hz create folder oy yg tt loy khop
+  },
+  "include": ["src/**/*", "src/Main.ts"],
+   // tsc compale tae lek 12 te
+  "exclude": ["node_modules"], // ot compale file ng
+  
+}
