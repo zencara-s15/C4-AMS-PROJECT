@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "noImplicitAny":true,
-    "outDir": "dict",  //compale hz create folder oy yg tt loy khop
+    "outDir": "dict",  //compale hz create folder oy yg tt loy z
   },
   "include": ["src/**/*", "src/Main.ts"],
    // tsc compale tae lek 12 te
