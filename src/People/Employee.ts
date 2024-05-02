@@ -4,7 +4,10 @@ enum Skills {
     CustomerService
 }
 class Employee {
-    constructor(private yearOfExperience: number, private skills: Skills, private salary: number) {
+    private yearOfExperience: number
+    private skills: Skills
+    private salary: number
+    constructor(yearOfExperience: number, skills: Skills, salary: number) {
         this.yearOfExperience = yearOfExperience;
         this.skills = skills;
         this.salary = salary;
