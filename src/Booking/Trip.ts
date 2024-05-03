@@ -8,9 +8,8 @@ export class Trip {
     private booking: BookingTrip[];
     // private passengers: Passenger[];
 
-    constructor(name: string,booking: BookingTrip[] ){
+    constructor(name: string,){
         this.name = name;
-        this.booking = booking;
     }
 
     getTripName(): string{
@@ -23,6 +22,22 @@ export class Trip {
 
     addBooking(booking: BookingTrip) {
         this.booking.push(booking);
+    }
+
+    getBooking(): BookingTrip[]{
+        return this.booking;
+    }
+
+    getCusotmerDetails(bookingRefNumber: string): string[] {
+        let passengerDetails: string[] = [];
+        for (const booking of this.booking) {
+            if (booking.getBookingReferenceNumber() === bookingRefNumber) {
+                let passenger = booking.getPassenger();
+                passengerDetails.push(passenger.getDetails());
+                passengerDetails.push(`Baggage: ${passenger.getBaggages()}`);
+            }
+        }
+        return passengerDetails;
     }
 
 }

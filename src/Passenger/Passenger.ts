@@ -1,7 +1,6 @@
 import { BookingTrip } from "../Booking/BookingTrip";
-import { Flight } from "../Flight/Flight";
-import { Customer } from "../People/Customer";
-import { Gender } from "../People/People";
+import { Flight, FlightType } from "../Flight/Flight";
+import { Gender, People } from "../People/People";
 import { Baggage } from "./Baggage";
 
 export enum MealType {
@@ -16,10 +15,13 @@ export enum MealType {
     HinduMeal="hindu",
 }
 
-export class Passenger extends Customer {
-    private returnTicket: boolean;
+export class Passenger extends People{
+    private flightType: FlightType;
     private meal: MealType;
     private flight: Flight;
+    private baggages: Baggage;
+
+    
 
     constructor(
         name: string,
@@ -31,8 +33,8 @@ export class Passenger extends Customer {
         returnTicket: boolean,
         meal: MealType
     ) {
-        super(name, gender, address, email, phoneNumber, bookingTrip);
-        this.returnTicket = returnTicket;
+        super(name, gender, address, email, phoneNumber,);
+        this.flightType = this.flightType;
         this.meal = meal;
     }
 
@@ -40,6 +42,15 @@ export class Passenger extends Customer {
         this.flight = flight;
         return this.flight.getBoardingGate();
     }
+
+    getBaggages(): Baggage {
+        return this.baggages;
+    }
+    
+    getTicketType(): FlightType {
+        return this.flightType;
+    }
+    
 }
 
 

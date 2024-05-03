@@ -1,12 +1,12 @@
 import { Airline } from "../Airport/Airline";
+import { Passenger } from "../Passenger/Passenger";
 import { Seat } from "../Passenger/Seat";
-import { Customer } from "../People/Customer";
 import { Trip } from "./Trip";
 
 export class BookingTrip {
 
     private bookingReferenceNumber: string;
-    private customer: Customer;
+    private passenger: Passenger;
     private airline: Airline;
     private returnTicket: boolean;
     private seat: Seat;
@@ -15,9 +15,9 @@ export class BookingTrip {
     private trip: Trip;
     static BookingTrip: BookingTrip;
 
-    constructor(bookingReferenceNumber: string,customer: Customer,airline: Airline, bookingDate: Date) {
+    constructor(bookingReferenceNumber: string,passenger: Passenger,airline: Airline, bookingDate: Date) {
         this.bookingReferenceNumber = bookingReferenceNumber;
-        this.customer = customer;
+        this.passenger = passenger;
         this.airline = airline;
         this.bookingDate = bookingDate;
     }
@@ -30,8 +30,8 @@ export class BookingTrip {
         return this.bookingReferenceNumber;
     }
 
-    getCustomer(): Customer {
-        return this.customer;
+    getPassenger(): Passenger {
+        return this.passenger;
     }
 
 

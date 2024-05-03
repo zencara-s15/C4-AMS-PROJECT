@@ -21,4 +21,5 @@ export class AirlineManager extends Employee {
         }
         return totalSalary;
     }
+    
 }
