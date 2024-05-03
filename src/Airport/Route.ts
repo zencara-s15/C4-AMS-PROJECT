@@ -1,11 +1,12 @@
+import { Time } from "../Schedule/Time";
 import { Airport } from "./Airport";
 
 export class Route {
     private departure: Airport;
     private arrival: Airport;
-    private durationMinute: number;
+    private durationMinute: Time;
 
-    constructor(departure: Airport, arrival: Airport, durationMinute: number) {
+    constructor(departure: Airport, arrival: Airport, durationMinute: Time) {
         this.departure = departure;
         this.arrival = arrival;
         this.durationMinute = durationMinute;

@@ -5,4 +5,5 @@ export class Time{
         this.hour = hour;
         this.minute = minute;
     }
+    
 }

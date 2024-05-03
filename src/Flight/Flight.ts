@@ -36,12 +36,10 @@ export class Flight {
         this.flightSchedule = flightSchedule;
         this.trip = trip;
     }
-
+    
     getFlightID(): string {
         return this.flightID;
     }
-    
-    
 
     addPilot(pilot: Pilot): void {
         this.pilots.push(pilot);
