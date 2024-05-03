@@ -1,9 +1,9 @@
 import { Gender, People } from "./People";
 
 export enum Skills {
-    OperationAirplane,
-    Hospitality,
-    CustomerService
+    OperationAirplane="OperationAirplane",
+    Hospitality="Hospitality",
+    CustomerService="CustomerService",
 }
 
 export abstract class Employee extends People {

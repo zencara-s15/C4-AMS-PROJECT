@@ -11,11 +11,10 @@ export class Airport {
     private aircrafts: Aircraft[];
     private boardingGates: BoardingGate[]
     
-    constructor(name: string, country: string, city: string, airlines: Airline[]) {
+    constructor(name: string, country: string, city: string) {
         this.name = name;
         this.country = country;
         this.city = city;
-        this.airlines = airlines;
     }
 
     public getAirportName(): string {

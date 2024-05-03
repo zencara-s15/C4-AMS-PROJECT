@@ -5,15 +5,15 @@ import { Gender } from "../People/People";
 import { Baggage } from "./Baggage";
 
 export enum MealType {
-    BabyMeal,
-    BlandMeal,
-    ChildMeal,
-    ToddlerMeal,
-    DiabeticMeal,
-    GlutenFreeMeal,
-    LowSodium,
-    HalalMeal,
-    HinduMeal,
+    BabyMeal="babymeal",
+    BlandMeal="blandmeal",
+    ChildMeal="childmeal",
+    ToddlerMeal="childmeal",
+    DiabeticMeal="diabetic",
+    GlutenFreeMeal="glutenfree",
+    LowSodium="lowsodium",
+    HalalMeal="halal",
+    HinduMeal="hindu",
 }
 
 export class Passenger extends Customer {
