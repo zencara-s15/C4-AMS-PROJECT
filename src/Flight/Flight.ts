@@ -1,13 +1,14 @@
 import { Airport } from "../Airport/Airport"
 import { BoardingGate } from "../Airport/BoardingGate"
 import { Route } from "../Airport/Route"
+import { BookingTrip } from "../Booking/BookingTrip"
 import { Trip } from "../Booking/Trip"
 import { Passenger } from "../Passenger/Passenger"
 import { FlightCrew } from "../People/FlightCrew"
 import { Pilot } from "../People/Pilot"
 import { FlightSchedule } from "../Schedule/FlightSchedule"
 
-enum FlightType {
+export enum FlightType {
     OneWay,
     RoundTrip
 }
@@ -25,6 +26,7 @@ export class Flight {
     private arrivalTrip: Airport;
     private passengers: Passenger[];
     private boardingGate: BoardingGate
+    private booking: BookingTrip[];
 
     constructor(flightID: string,flightType: FlightType, flightRoutes: Route[], trip: Trip, flightSchedule: FlightSchedule[],) {
 
@@ -39,21 +41,7 @@ export class Flight {
         return this.flightID;
     }
     
-    getFlightDetail(): string {
-        let details = `Flight ID: ${this.flightID}\n`;
-        details += `Flight Type: ${FlightType[this.flightType]}\n`;
-        details += "Routes:\n";
-        this.flightRoutes.forEach((route, index) => {
-            details += `${index + 1}. ${route.getRouteDetails()}\n`;
-        });
-        details += "Schedule:\n";
-        this.flightSchedule.forEach((schedule, index) => {
-            details += `${index + 1}. ${schedule.getScheduleDetails()}\n`;
-        });
-        details += "Trip Details:\n";
-        details += this.trip.getTripName();
-        return details;
-    }
+    
 
     addPilot(pilot: Pilot): void {
         this.pilots.push(pilot);
@@ -82,5 +70,31 @@ export class Flight {
     getBoardingGate(): string {
         return this.boardingGate.getGateNumber();
     }
-    
+
+    countReturnPassengers(): number {
+        let returnPassengerCount = 0;
+        for (let booking of this.booking) {
+            const passenger = booking.getPassenger();
+            if (passenger.getTicketType() === FlightType.RoundTrip) {
+                returnPassengerCount++;
+            }
+        }
+        return returnPassengerCount;
+    }
+
+    getFlightDetail(): string {
+        let details = `Flight ID: ${this.flightID}\n`;
+        details += `Flight Type: ${FlightType[this.flightType]}\n`;
+        details += "Routes:\n";
+        this.flightRoutes.forEach((route, index) => {
+            details += `${index + 1}. ${route.getRouteDetails()}\n`;
+        });
+        details += "Schedule:\n";
+        this.flightSchedule.forEach((schedule, index) => {
+            details += `${index + 1}. ${schedule.getScheduleDetails()}\n`;
+        });
+        details += "Trip Details:\n";
+        details += this.trip.getTripName();
+        return details;
+    }
 }

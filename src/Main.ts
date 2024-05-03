@@ -11,7 +11,6 @@ import { Passenger } from "./Passenger/Passenger";
 import { Seat } from "./Passenger/Seat";
 import { Ticket } from "./Passenger/Ticket";
 import { AirlineManager } from "./People/AirlineManager";
-import { Customer } from "./People/Customer";
 import { Employee } from "./People/Employee";
 import { FlightCrew } from "./People/FlightCrew";
 import { GroundCrew } from "./People/GroundCrew";
@@ -23,3 +22,7 @@ import { Time } from "./Schedule/Time";
 
 
 ///------------------------------------------------------------
+
+let PPTrip = new Trip("PP TO KPS")
+
+console.log(PPTrip.getCusotmerDetails);
