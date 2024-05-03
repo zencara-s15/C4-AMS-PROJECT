@@ -41,16 +41,16 @@ export class Flight {
         return this.flightID;
     }
 
-    addPilot(pilot: Pilot): void {
-        this.pilots.push(pilot);
+    addPilot(...pilot: Pilot[]): void {
+        this.pilots.push(...pilot);
     }
 
-    addFlightCrew(flightCrew: FlightCrew): void {
-        this.flightCrews.push(flightCrew);
+    addFlightCrew(...flightCrew: FlightCrew[]): void {
+        this.flightCrews.push(...flightCrew);
     }
-
-    addPassenger(passenger: Passenger): void {
-        this.passengers.push(passenger);
+    
+    addPassenger(...passenger: Passenger[]): void {
+        this.passengers.push(...passenger);
     }
 
     getTrip(): Trip{
@@ -73,7 +73,7 @@ export class Flight {
         let returnPassengerCount = 0;
         for (let booking of this.booking) {
             const passenger = booking.getPassenger();
-            if (passenger.getTicketType() === FlightType.RoundTrip) {
+            if (passenger.getFlightType() === FlightType.RoundTrip) {
                 returnPassengerCount++;
             }
         }

@@ -14,7 +14,6 @@ export class BookingTrip {
     private price: number
     private bookingDate: Date;
     private trip: Trip;
-    static BookingTrip: BookingTrip;
 
     constructor(bookingReferenceNumber: string,passenger: Passenger,airline: Airline,) {
         this.bookingReferenceNumber = bookingReferenceNumber;
@@ -22,6 +21,10 @@ export class BookingTrip {
         this.airline = airline;
     }
 
+    addBookingDate (newDate: Date): void {
+        this.bookingDate = newDate;
+        
+    }
     getBookingDate(): Date {
         return this.bookingDate;
     }

@@ -10,9 +10,9 @@ export class AirlineManager extends Employee {
         this.managedEmployees = [];
     }
     
-    addManagedEmployee(employee: Employee): void {
-        this.managedEmployees.push(employee);
-    }
+    addManagedEmployee(...employees: Employee[]): void {
+        this.managedEmployees.push(...employees);
+    }    
 
     getEmployeeAllSalary(): number {
         let totalSalary = 0;

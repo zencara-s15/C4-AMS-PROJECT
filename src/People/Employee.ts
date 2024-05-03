@@ -4,6 +4,7 @@ export enum Skills {
     OperationAirplane="OperationAirplane",
     Hospitality="Hospitality",
     CustomerService="CustomerService",
+    ManagingAirline="Managing Airline"
 }
 
 export abstract class Employee extends People {

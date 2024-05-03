@@ -6,12 +6,12 @@ export class FlightSchedule{
     constructor(departureDate:DateTime[]){
         this.departureDate = departureDate;
     }
+    setDepartureDate(departureDate:DateTime[]){
+        this.departureDate = departureDate;
+    }
 
     getScheduleDetails():DateTime[]{
         return this.departureDate;
-    }
-    setDepartureDate(departureDate:DateTime[]){
-        this.departureDate = departureDate;
     }
 
 }
