@@ -8,8 +8,9 @@ export class Trip {
     private booking: BookingTrip[];
     // private passengers: Passenger[];
 
-    constructor(name: string,){
+    constructor(name: string,numberOfPassenger: number){
         this.name = name;
+        this.numberOfPassenger = numberOfPassenger;
     }
 
     getTripName(): string{
@@ -20,9 +21,9 @@ export class Trip {
         return this.numberOfPassenger;
     }
 
-    addBooking(booking: BookingTrip) {
-        this.booking.push(booking);
-    }
+    // addBooking(booking: BookingTrip) {
+    //     this.booking.push(booking);
+    // }
 
     getBooking(): BookingTrip[]{
         return this.booking;

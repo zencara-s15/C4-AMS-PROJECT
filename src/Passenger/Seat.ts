@@ -1,16 +1,16 @@
-export enum SeatType{
-    Regular,
-    Accessible,
-    EmergencyExit,
-    ExtraLegRoom
+enum SeatType{
+    Regular = "regular",
+    Accessible = "accessible",
+    EmergencyExit= "emergency",
+    ExtraLegRoom= "extra-legroom",
 }
 
-export enum SeatClass{
-    Economy,
-    EconomyPlus,
-    PreferredEconomy,
-    Business,
-    FirstClass
+enum SeatClass{
+    Economy= "economy",
+    EconomyPlus= "economy-plus",
+    PreferredEconomy= "preferred-economy",
+    Business= "business",
+    FirstClass= "first-class",
 }
 
 export class Seat {

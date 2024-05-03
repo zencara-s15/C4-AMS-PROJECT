@@ -4,15 +4,15 @@ import { Gender, People } from "../People/People";
 import { Baggage } from "./Baggage";
 
 export enum MealType {
-    BabyMeal,
-    BlandMeal,
-    ChildMeal,
-    ToddlerMeal,
-    DiabeticMeal,
-    GlutenFreeMeal,
-    LowSodium,
-    HalalMeal,
-    HinduMeal,
+    BabyMeal="babymeal",
+    BlandMeal="blandmeal",
+    ChildMeal="childmeal",
+    ToddlerMeal="childmeal",
+    DiabeticMeal="diabetic",
+    GlutenFreeMeal="glutenfree",
+    LowSodium="lowsodium",
+    HalalMeal="halal",
+    HinduMeal="hindu",
 }
 
 export class Passenger extends People{
@@ -20,22 +20,9 @@ export class Passenger extends People{
     private meal: MealType;
     private flight: Flight;
     private baggages: Baggage;
-
-    
-
-    constructor(
-        name: string,
-        gender: Gender,
-        address: string,
-        email: string,
-        phoneNumber: string,
-        bookingTrip: BookingTrip,
-        returnTicket: boolean,
-        meal: MealType
-    ) {
+    private bookingTrip: BookingTrip;
+    constructor( name: string,gender: Gender,address: string,email: string,phoneNumber: string) {
         super(name, gender, address, email, phoneNumber,);
-        this.flightType = this.flightType;
-        this.meal = meal;
     }
 
     getGateNumber(flight: Flight): string {

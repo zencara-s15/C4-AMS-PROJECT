@@ -3,7 +3,7 @@ import { DateTime } from "./DateTime";
 export class FlightSchedule{
     private departureDate:DateTime[]
     
-    constructor( departureDate:DateTime[]){
+    constructor(departureDate:DateTime[]){
         this.departureDate = departureDate;
     }
 
