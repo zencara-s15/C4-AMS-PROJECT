@@ -11,6 +11,5 @@ export class Aircraft {
         this.numberOfSeat = numberOfSeat;
         this.seats = seats;
         this.flightRoutes = flightRoutes;
-
     }
 }

@@ -1,7 +1,18 @@
-export class DateTime{
-    constructor(public day:number, public month:string, public year:number){
+import { Time } from "./Time";
+
+export class DateTime {
+    public day: number;
+    public month: string;
+    public year: number;
+    private time: Time;
+
+    constructor(day: number, month: string, year: number) {
         this.day = day;
         this.month = month;
         this.year = year;
+    }
+
+    getDate(): string[] {
+        return [String(this.day), this.month, String(this.year)];
     }
 }

@@ -1,22 +1,28 @@
-import { FlightCrew } from "../People/FlightCrew";
-import { Pilot } from "../People/Pilot";
+
 import { BookingTrip } from "./BookingTrip";
 
-
 export class Trip {
-    private departureTrip: string;
-    private arrivalTrip: string;
-    private pilots: Pilot[];
-    private flightCrews: FlightCrew[];
+
+    private name: string;
     private numberOfPassenger: number;
-    private booking: BookingTrip[] 
-    constructor(departureTrip: string,arrivalTrip: string,pilots: Pilot[],flightCrews: FlightCrew[],numberOfPassenger: number,booking: BookingTrip[] ) {
-        this.departureTrip = departureTrip;
-        this.arrivalTrip = arrivalTrip;
-        this.pilots = pilots;
-        this.flightCrews = flightCrews;
-        this.numberOfPassenger = numberOfPassenger;
+    private booking: BookingTrip[];
+    // private passengers: Passenger[];
+
+    constructor(name: string,booking: BookingTrip[] ){
+        this.name = name;
         this.booking = booking;
-        
     }
+
+    getTripName(): string{
+        return this.name;
+    }
+
+    getNumberOfPassenger(): number{
+        return this.numberOfPassenger;
+    }
+
+    addBooking(booking: BookingTrip) {
+        this.booking.push(booking);
+    }
+
 }

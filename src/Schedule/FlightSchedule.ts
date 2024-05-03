@@ -1,5 +1,17 @@
+import { DateTime } from "./DateTime";
+
 export class FlightSchedule{
-    constructor(private departureDate:Date[]){
+    private departureDate:DateTime[]
+    
+    constructor( departureDate:DateTime[]){
         this.departureDate = departureDate;
     }
+
+    getScheduleDetails():DateTime[]{
+        return this.departureDate;
+    }
+    setDepartureDate(departureDate:DateTime[]){
+        this.departureDate = departureDate;
+    }
+
 }

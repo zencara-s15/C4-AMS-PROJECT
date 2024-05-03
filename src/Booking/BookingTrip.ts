@@ -1,16 +1,38 @@
+import { Airline } from "../Airport/Airline";
 import { Seat } from "../Passenger/Seat";
-
+import { Customer } from "../People/Customer";
+import { Trip } from "./Trip";
 
 export class BookingTrip {
-    private  bookingReferenceNumber: string;
+
+    private bookingReferenceNumber: string;
+    private customer: Customer;
+    private airline: Airline;
     private returnTicket: boolean;
     private seat: Seat;
     private price: number
-    constructor(bookingReferenceNumber: string,returnTicket: boolean,seat: Seat,price: number) {
+    private bookingDate: Date;
+    private trip: Trip;
+
+    constructor(bookingReferenceNumber: string,customer: Customer,airline: Airline, bookingDate: Date) {
         this.bookingReferenceNumber = bookingReferenceNumber;
-        this.returnTicket = returnTicket;
-        this.seat = seat;
-        this.price = price;
-        
+        this.customer = customer;
+        this.airline = airline;
+        this.bookingDate = bookingDate;
     }
+
+    getBookingDate(): Date {
+        return this.bookingDate;
+    }
+    
+    getBookingReferenceNumber(): string {
+        return this.bookingReferenceNumber;
+    }
+
+    getCustomer(): Customer {
+        return this.customer;
+    }
+
+
+
 }
