@@ -32,6 +32,10 @@ export class Passenger extends People{
         return this.flight.getBoardingGate();
     }
 
+    getFlightType(): FlightType {
+        return this.flightType;
+    }
+
     addBaggages(baggage: Baggage): void {
         this.baggages = baggage;
     }
@@ -44,10 +48,6 @@ export class Passenger extends People{
     }
     getTicket(): Ticket{
         return this.ticket
-    }
-        
-    getFlightType(): FlightType {
-        return this.flightType;
     }
     
 }

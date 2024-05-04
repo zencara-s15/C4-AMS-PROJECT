@@ -19,16 +19,16 @@ export class Flight {
     private flightType: FlightType;
     private flightRoutes: Route[];
     private flightSchedule: FlightSchedule[];
-    private pilots: Pilot[];
-    private flightCrews: FlightCrew[];
+    private pilots: Pilot[] = [];
+    private flightCrews: FlightCrew[] = [];
     private trip: Trip;
     private departureTrip: Airport;
     private arrivalTrip: Airport;
-    private passengers: Passenger[];
+    private passengers: Passenger[] = [];
     private boardingGate: BoardingGate
-    private booking: BookingTrip[];
+    // private bookings: BookingTrip[];
 
-    constructor(flightID: string,flightType: FlightType, flightRoutes: Route[], trip: Trip, flightSchedule: FlightSchedule[],) {
+    constructor(flightID: string, flightType: FlightType, flightRoutes: Route[], trip: Trip, flightSchedule: FlightSchedule[],) {
 
         this.flightID = flightID;
         this.flightType = flightType;
@@ -36,7 +36,7 @@ export class Flight {
         this.flightSchedule = flightSchedule;
         this.trip = trip;
     }
-    
+
     getFlightID(): string {
         return this.flightID;
     }
@@ -49,11 +49,7 @@ export class Flight {
         this.flightCrews.push(...flightCrew);
     }
     
-    addPassenger(...passenger: Passenger[]): void {
-        this.passengers.push(...passenger);
-    }
-
-    getTrip(): Trip{
+    getTrip(): Trip {
         return this.trip;
     }
 
@@ -61,23 +57,16 @@ export class Flight {
         return this.flightRoutes;
     }
 
-    getFlightSchedule(): FlightSchedule[]{
+    getFlightSchedule(): FlightSchedule[] {
         return this.flightSchedule;
+    }
+
+    addBoardingGate(boardingGate: BoardingGate): void {
+        this.boardingGate = boardingGate;
     }
 
     getBoardingGate(): string {
         return this.boardingGate.getGateNumber();
-    }
-
-    countReturnPassengers(): number {
-        let returnPassengerCount = 0;
-        for (let booking of this.booking) {
-            const passenger = booking.getPassenger();
-            if (passenger.getFlightType() === FlightType.RoundTrip) {
-                returnPassengerCount++;
-            }
-        }
-        return returnPassengerCount;
     }
 
     getFlightDetail(): string {
@@ -95,4 +84,15 @@ export class Flight {
         details += this.trip.getTripName();
         return details;
     }
+    countReturnPassengers(): number {
+        let returnTicketPassengerCount = 0;
+        if (this.flightType === FlightType.RoundTrip) {
+          for (const passenger of this.passengers) {
+            if (passenger.getTicket()?.getFlightType() === FlightType.RoundTrip) {
+              returnTicketPassengerCount++;
+            }
+          }
+        }
+        return returnTicketPassengerCount;
+      }
 }

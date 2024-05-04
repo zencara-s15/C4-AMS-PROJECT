@@ -1,5 +1,15 @@
+import { FlightType } from "../Flight/Flight";
+
 export class Ticket {
-    constructor(private ticketID: number ) {
-        this.ticketID = ticketID;
-    }
+  private ticketID: number;
+  private flightType: FlightType;
+
+  constructor(ticketID: number, flightType: FlightType) {
+    this.ticketID = ticketID;
+    this.flightType = flightType;
+  }
+
+  getFlightType(): FlightType {
+    return this.flightType;
+  }
 }

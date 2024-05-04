@@ -1,18 +1,31 @@
 
+import { Baggage } from "../Passenger/Baggage";
+import { Passenger } from "../Passenger/Passenger";
+import { People } from "../People/People";
 import { BookingTrip } from "./BookingTrip";
 
 export class Trip {
     
-
     private name: string;
     private numberOfPassenger: number;
-    private booking: BookingTrip[];
+    private bookings: BookingTrip[] = []; 
     private date: Date[];
-    // private passengers: Passenger[];
+    private passengers: Passenger[];
 
     constructor(name: string,numberOfPassenger: number,){
         this.name = name;
         this.numberOfPassenger = numberOfPassenger;
+    }
+
+    getCusotmerDetails(bookingRefNumber: string): People[] {
+        let passengerDetails: People[] = [];
+        for (let booking of this.bookings) {
+            if (booking.getBookingReferenceNumber() === bookingRefNumber) {
+                let passenger = booking.getPassenger();
+                passengerDetails.push(passenger.getDetails());
+            }
+        }
+        return passengerDetails;
     }
 
     getTripName(): string{
@@ -31,24 +44,12 @@ export class Trip {
         return this.numberOfPassenger;
     }
 
-    addBooking(...booking: BookingTrip[]) {
-        this.booking.push(...booking);
+    addBooking(booking: BookingTrip) {
+        this.bookings.push(booking);
     }
 
     getBooking(): BookingTrip[]{
-        return this.booking;
-    }
-
-    getCusotmerDetails(bookingRefNumber: string): string[] {
-        let passengerDetails: string[] = [];
-        for (let booking of this.booking) {
-            if (booking.getBookingReferenceNumber() === bookingRefNumber) {
-                let passenger = booking.getPassenger();
-                passengerDetails.push(passenger.getDetails());
-                passengerDetails.push(`Baggage: ${passenger.getBaggages()}`);
-            }
-        }
-        return passengerDetails;
+        return this.bookings;
     }
 
 }

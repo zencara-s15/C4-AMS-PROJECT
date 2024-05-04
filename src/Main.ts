@@ -21,36 +21,10 @@ import { FlightSchedule } from "./Schedule/FlightSchedule";
 import { Time } from "./Schedule/Time";
 
 
-///------------------------------------------------------------
-
-// AirlineManager
-
-let airlineManager = new AirlineManager(
-    "Zencara",
-    Gender.Male,
-    "1233 Elm Street",
-    "zencara@example.com",
-    "987-654-3210",
-    8,
-    Skills.ManagingAirline,
-    10000
-);
-
-// date 
-let date1 = new DateTime(14,"Jan", 2024);
-
-let jan12= new DateTime(12,"Jan",2024);
-
-// create duration
-let min90 = new Time(90)
-
-// flgiht schedule
-
-let schedule1 = new FlightSchedule([date1]);
+///------------------------------------------------------------ Object ------------------------------------------------------------
 
 
 // airport
-
 let PhnomPenhAirport = new Airport("Phnom Penh International Airport", "Cambodia", "Phnom Penh");
 let SingaporeChangiAirport = new Airport("Singapore Changi Airport", "Singapore", "Changi");
 let TokyoAirport = new Airport("Tokyo Haneda Airport", "Japan", "Tokyo");
@@ -63,8 +37,8 @@ let SydneyAirport = new Airport("Sydney Airport", "Australia", "Sydney");
 let JohannesburgAirport = new Airport("O.R. Tambo International Airport", "South Africa", "Johannesburg");
 let RioDeJaneiroAirport = new Airport("Rio de Janeiro-Galeão International Airport", "Brazil", "Rio de Janeiro");
 
-// airline 
 
+// airline 
 let CambodiaAirline = new Airline("Cambodia Airline");
 let JapanAirways = new Airline("Japan Airways");
 let BritishAirways = new Airline("British Airways");
@@ -76,8 +50,8 @@ let Qantas = new Airline("Qantas");
 let SouthAfricanAirways = new Airline("South African Airways");
 let LATAMAirlines = new Airline("LATAM Airlines");
 
-// Aircraft 
 
+// Aircraft 
 const aircraft1 = new Aircraft("SN001", 200);
 const aircraft2 = new Aircraft("SN002", 150);
 const aircraft3 = new Aircraft("SN003", 180);
@@ -87,14 +61,14 @@ const aircraft6 = new Aircraft("SN006", 190);
 const aircraft7 = new Aircraft("SN007", 220);
 const aircraft8 = new Aircraft("SN008", 170);
 
-// Passenger
 
+// Passenger
 let Passenger1 = new Passenger("Chin SireyPuthiReach", Gender.Male, "123 Main Street", "chinsereyputhireach@gmail.com", "123-456-7890");
 let Passenger2 = new Passenger("Chok SreyMom", Gender.Male, "123 Main Street", "chinsereyputhireach@gmail.com", "123-456-7890");
 let Passenger3 = new Passenger("Ley Tem", Gender.Male, "123 Main Street", "chinsereyputhireach@gmail.com", "123-456-7890");
 
-// Pilot
 
+// Pilot
 let pilot1 = new Pilot(
     "John Smith",
     Gender.Male,
@@ -127,8 +101,8 @@ let pilot3 = new Pilot(
     12000
 );
 
-// fligthCrew 
 
+// fligthCrew 
 const flightCrew1 = new FlightCrew(
     "Li Wei",
     Gender.Female,
@@ -184,34 +158,60 @@ const flightCrew1 = new FlightCrew(
     4800
   );
 
-//route
 
+// AirlineManager
+let airlineManager = new AirlineManager(
+  "Zencara",
+  Gender.Male,
+  "1233 Elm Street",
+  "zencara@example.com",
+  "987-654-3210",
+  8,
+  Skills.ManagingAirline,
+  10000
+);
+
+
+// date 
+let jan14 = new DateTime(14,"Jan", 2024);
+let jan12= new DateTime(12,"Jan",2024);
+
+
+// create duration
+let min90 = new Time(90)
+
+
+// flgiht schedule
+let schedule1 = new FlightSchedule([jan14]);
+
+
+//route
 let route1 = new Route(PhnomPenhAirport,NewYorkAirport, min90)
 
+
 // boardingGate
+let GATE_A11 = new BoardingGate("A11");
 
-let A11C = new BoardingGate("A11C");
-
-// boookingTrip
-
-let booking1 = new BookingTrip("FL001",Passenger1,BritishAirways)
 
 // trip 
-
 let trip1 = new Trip("Happy Trip",99);
 
-// flight
 
+// boookingTrip
+let booking1 = new BookingTrip("FL001",Passenger1,BritishAirways,trip1, jan12)
+let booking2 = new BookingTrip("FL002",Passenger3,BritishAirways,trip1, jan12)
+
+
+// flight
 let flight1 = new Flight("FL001",FlightType.OneWay, [route1], trip1,[schedule1]);
 
-// Baggage 
 
+// Baggage 
 let baggage1 = new Baggage("BO01", 50);
 
+
 // ticket 
-
-let ticket1 = new Ticket(10221);
-
+let ticket1 = new Ticket(10221, FlightType.RoundTrip);
 
 
 // ----------------------------------------------Method---------------------------------------------------
@@ -219,133 +219,138 @@ let ticket1 = new Ticket(10221);
 
 // airport methhod-----
 
-//-- add flight to airline -- 
-// CambodiaAirline.addFlight(flight1);
+//-- As a airline, I want to add new flight -- worked
+CambodiaAirline.addFlight(flight1);
 
-//-- add airCraft to airline -- 
-// CambodiaAirline.addAircraft(aircraft1);
+//-- As an airline, I want to add new airline manager -- worked
+CambodiaAirline.addAircraft(aircraft1);
 
-//-- add employee to airline -- 
-// CambodiaAirline.addEmployee();
+//-- As an airline, I want to add new employee -- worked
+CambodiaAirline.addEmployee(flightCrew1);
 
-//-- add airline manager to airline -- 
-// CambodiaAirline.addAirlineManager();
+//-- As an airline, I want to add new airline manager-- worked
+CambodiaAirline.addAirlineManager(airlineManager);
 
-//-- getAvaiableFlight -- 
-// console.log(CambodiaAirline.getAvailableFlights());
+//-- getAvaiableFlight -- not work
+console.log(CambodiaAirline.getAvailableFlights());
 
 
+// BoardingGate method---- worked
 
-// BoardingGate method----
-
-//-- get gate number -- 
-// console.log(A11C.getGateNumber());
-
+//-- get gate number -- Worked
+console.log(GATE_A11.getGateNumber());
 
 
 // Route method----
 
-//-- get raoute details-- 
-// console.log(route1.getRouteDetails())
+//-- Get route details-- worked
+console.log(route1.getRouteDetails())
 
 
+// BookingTrip method----
 
-// boooking method----
+//-- IN a booking, I want to get booking date-- worked
+console.log(booking1.getBookingDate());
 
-//-- get booking date-- 
-// console.log(booking1.getBookingDate());
+//-- In a booking, I can get bookingReference number-- worked
+console.log(booking1.getBookingReferenceNumber());
 
-//-- get bookingReference number-- 
-// console.log(booking1.getBookingReferenceNumber());
-
-//-- get passenger details-- 
-// console.log(booking1.getPassenger());
+//-- In a boooking, I want to see detial of passenger-- Worked
+console.log(booking1.getPassenger());
 
 // Trip method----
 
-//-- get trip name-- 
-// console.log(trip1.getTripName());
+//--In a trip, I can get the name of the trip-- worked
+console.log(trip1.getTripName());
 
-//-- get count number of passernger-- 
-// console.log(trip1.getNumberOfPassenger());
+//--In a trip, I can Count number of passernger-- worked
+console.log(trip1.getNumberOfPassenger());
 
-//-- get add another booking to trip-- 
-// trip1.addBooking(booking1);
+//-- get add another booking to trip-- worked
+trip1.addBooking(booking1);
+trip1.addBooking(booking2);
+// console.log(booking1);
 
-// to get customer detail by booking reference number
-// console.log(trip1.getCusotmerDetails("FL001"));
-
-
+//--To get passenger detail by booking reference number-- worked
+let booking1RefNumber = booking1.getBookingReferenceNumber()
+console.log(trip1.getCusotmerDetails(booking1RefNumber));
 
 // Fligtht method----
 
-//-- get flight id-- 
-// console.log(flight1.getFlightID());
+//-- In a flight, I want to add gate-- worked 
+flight1.addBoardingGate(GATE_A11);
 
-//-- add pilots-- 
-// flight1.addPilot(pilot1, pilot2);
+//--In a flight, I want to get flightID-- worked
+console.log(flight1.getFlightID());
 
-//-- add flgihtCrew-- 
-// flight1.addFlightCrew(flightCrew1,flightCrew2,flightCrew3);
+//-- In a flight, I want to add pilots-- worked
+flight1.addPilot(pilot1, pilot2);
 
- //-- add passenger-- 
-// flight1.addPassenger(Passenger1, Passenger2);
 
-//-- get trip-- 
-// console.log(flight1.getTrip());
+//-- In a flight, I want to add flgihtCrew-- worked
+flight1.addFlightCrew(flightCrew1,flightCrew2,flightCrew3);
 
-//-- get deatial route -- 
-// console.log(flight1.getRoute());
 
-//-- get flight schedule-- 
-// console.log(flight1.getFlightSchedule());
+//--In a flight, I want to addBooking-- not working
+// flight1.addBooking(booking1)
 
-//-- show boardingGate-- 
-// console.log(flight1.getBoardingGate());
+//--In a flight, I need to get trip information-- worked
+console.log(flight1.getTrip());
 
-//-- get number of passenger--
-// console.log(flight1.countReturnPassengers())
+//--In a flight, I need to show Flight Route to passenger-- worked
+console.log(flight1.getRoute());
 
-//-- display flight detail--
-// console.log(flight1.getFlightDetail());
+//--In a flight, I need to show Flight Schedule to passenger-- worked
+console.log(flight1.getFlightSchedule());
+
+//--In a flight, I need to show waiting gate to passenger-- worked
+console.log(flight1.getBoardingGate());
+
+//-- In a flight, I want to count the number of return Passenger-- worked
+console.log(flight1.countReturnPassengers())
+
+//--In a Flight, It will show all the detail information -- worked
+console.log(flight1.getFlightDetail());
 
 
 
 // Passenger method----
 
-//-- passenger want to know gate number--
-// console.log(Passenger1.getGateNumber(flight1)) ***
+//--As a passenger want to know gate number that my plane is waiting at-- worked
+console.log(Passenger1.getGateNumber(flight1))
 
-//-- passenger add and get baggage--
-// Passenger1.addBaggages(baggage1) 
-// console.log(Passenger1.getBaggages());
+//--As a passenger, I want add and get baggage-- worked
+Passenger1.addBaggages(baggage1) 
+console.log(Passenger1.getBaggages());
 
-//-- passsenger ticket --
-// Passenger1.addTicket(ticket1)
-// console.log(Passenger1.getTicket())
+//--As passsenger, I have a ticket -- worked
+//add ticket to passenger before display it
+Passenger1.addTicket(ticket1)
+console.log(Passenger1.getTicket())
 
 
 
 // Airline Manager method----
 
-// airline manager add employee--
-// airlineManager.addManagedEmployee(flightCrew1, pilot1,)
-
-//-- get total salary of employee--
-// console.log(airlineManager.getEmployeeAllSalary());
+// As an airline manager, I want to add add employee-- worked
+airlineManager.addManagedEmployee(flightCrew1, pilot1,)
+//--As an airline manager, I want to get total salary of employee-- worked
+console.log(airlineManager.getEmployeeAllSalary());
 
 
 // Date method----
 
-//-- get date object detail -- 
-// console.log(date1.getDate())
+//-- get date object detail -- worked
+console.log(jan14.getDate())
+
+
 
 // Flight Schedule method----
 
-//-- set date for a scheduled flight -- 
-// schedule1.setDepartureDate([date1])
+//-- set date for a scheduled flight -- worked
+schedule1.setDepartureDate([jan14])
 
-//-- see detial of a scheduled flight -- 
-// console.log(schedule1.getScheduleDetails());
+//-- see detial of a scheduled flight -- worked
+console.log(schedule1.getScheduleDetails());
 
-
+console.log(flight1);

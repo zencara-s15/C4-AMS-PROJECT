@@ -2,6 +2,7 @@ import { Airline } from "../Airport/Airline";
 import { FlightType } from "../Flight/Flight";
 import { Passenger } from "../Passenger/Passenger";
 import { Seat } from "../Passenger/Seat";
+import { DateTime } from "../Schedule/DateTime";
 import { Trip } from "./Trip";
 
 export class BookingTrip {
@@ -12,20 +13,26 @@ export class BookingTrip {
     private flightType: FlightType;
     private seat: Seat;
     private price: number
-    private bookingDate: Date;
+    private bookingDate: DateTime;
     private trip: Trip;
 
-    constructor(bookingReferenceNumber: string,passenger: Passenger,airline: Airline,) {
+    constructor(bookingReferenceNumber: string,passenger: Passenger,airline: Airline,trip: Trip, dateTime: DateTime) {
         this.bookingReferenceNumber = bookingReferenceNumber;
         this.passenger = passenger;
         this.airline = airline;
+        this.trip = trip;
+        this.bookingDate = dateTime;
     }
 
-    addBookingDate (newDate: Date): void {
+    getPassenger(): Passenger {
+        return this.passenger;
+    } 
+    
+    addBookingDate (newDate: DateTime): void {
         this.bookingDate = newDate;
         
     }
-    getBookingDate(): Date {
+    getBookingDate(): DateTime {
         return this.bookingDate;
     }
     
@@ -33,9 +40,9 @@ export class BookingTrip {
         return this.bookingReferenceNumber;
     }
 
-    getPassenger(): Passenger {
-        return this.passenger;
-    }
+    // getPassenger(): Passenger {
+    //     return this.passenger;
+    // }
 
 
 

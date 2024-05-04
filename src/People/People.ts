@@ -10,7 +10,17 @@ export abstract class People{
         this.email = email;
         this.phoneNumber = phoneNumber;
     }
-    getDetails(): string {
-        return `Name: ${this.name}\nGender: ${this.gender}\nAddress: ${this.address}\nEmail: ${this.email}\nPhone Number: ${this.phoneNumber}`;
+    getDetails(): People{
+
+        // let detials = ""
+        // detials += `Name: ${this.name}\n`
+        // detials += `Gender: ${this.gender}\n`
+        // detials += `Address: ${this.address}\n`
+        // detials += `Email: ${this.email}\n`
+        // detials += `Phone Number: ${this.phoneNumber}\n`
+
+        return this;
+
+        // return "Name: ${this.name} \n Gender: ${this.gender} \n Address: ${this.address} \n Email: ${this.email} \n Phone Number: ${this.phoneNumber}`;
     }
 }
