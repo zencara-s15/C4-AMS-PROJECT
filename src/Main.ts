@@ -232,39 +232,39 @@ CambodiaAirline.addEmployee(flightCrew1);
 CambodiaAirline.addAirlineManager(airlineManager);
 
 //-- getAvaiableFlight -- not work
-console.log(CambodiaAirline.getAvailableFlights());
+// console.log(CambodiaAirline.getAvailableFlights());
 
 
-// BoardingGate method---- worked
+// BoardingGate method----
 
 //-- get gate number -- Worked
-console.log(GATE_A11.getGateNumber());
+// console.log(GATE_A11.getGateNumber());
 
 
 // Route method----
 
 //-- Get route details-- worked
-console.log(route1.getRouteDetails())
+// console.log(route1.getRouteDetails())
 
 
 // BookingTrip method----
 
 //-- IN a booking, I want to get booking date-- worked
-console.log(booking1.getBookingDate());
+// console.log(booking1.getBookingDate());
 
 //-- In a booking, I can get bookingReference number-- worked
-console.log(booking1.getBookingReferenceNumber());
+// console.log(booking1.getBookingReferenceNumber());
 
 //-- In a boooking, I want to see detial of passenger-- Worked
-console.log(booking1.getPassenger());
+// console.log(booking1.getPassenger());
 
 // Trip method----
 
 //--In a trip, I can get the name of the trip-- worked
-console.log(trip1.getTripName());
+// console.log(trip1.getTripName());
 
 //--In a trip, I can Count number of passernger-- worked
-console.log(trip1.getNumberOfPassenger());
+// console.log(trip1.getNumberOfPassenger());
 
 //-- get add another booking to trip-- worked
 trip1.addBooking(booking1);
@@ -273,7 +273,7 @@ trip1.addBooking(booking2);
 
 //--To get passenger detail by booking reference number-- worked
 let booking1RefNumber = booking1.getBookingReferenceNumber()
-console.log(trip1.getCusotmerDetails(booking1RefNumber));
+// console.log(trip1.getCusotmerDetails(booking1RefNumber));
 
 // Fligtht method----
 
@@ -281,7 +281,7 @@ console.log(trip1.getCusotmerDetails(booking1RefNumber));
 flight1.addBoardingGate(GATE_A11);
 
 //--In a flight, I want to get flightID-- worked
-console.log(flight1.getFlightID());
+// console.log(flight1.getFlightID());
 
 //-- In a flight, I want to add pilots-- worked
 flight1.addPilot(pilot1, pilot2);
@@ -295,38 +295,38 @@ flight1.addFlightCrew(flightCrew1,flightCrew2,flightCrew3);
 // flight1.addBooking(booking1)
 
 //--In a flight, I need to get trip information-- worked
-console.log(flight1.getTrip());
+// console.log(flight1.getTrip());
 
 //--In a flight, I need to show Flight Route to passenger-- worked
-console.log(flight1.getRoute());
+// console.log(flight1.getRoute());
 
 //--In a flight, I need to show Flight Schedule to passenger-- worked
-console.log(flight1.getFlightSchedule());
+// console.log(flight1.getFlightSchedule());
 
 //--In a flight, I need to show waiting gate to passenger-- worked
-console.log(flight1.getBoardingGate());
+// console.log(flight1.getBoardingGate());
 
 //-- In a flight, I want to count the number of return Passenger-- worked
-console.log(flight1.countReturnPassengers())
+// console.log(flight1.countReturnPassengers())
 
 //--In a Flight, It will show all the detail information -- worked
-console.log(flight1.getFlightDetail());
+// console.log(flight1.getFlightDetail());
 
 
 
 // Passenger method----
 
 //--As a passenger want to know gate number that my plane is waiting at-- worked
-console.log(Passenger1.getGateNumber(flight1))
+// console.log(Passenger1.getGateNumber(flight1))
 
 //--As a passenger, I want add and get baggage-- worked
 Passenger1.addBaggages(baggage1) 
-console.log(Passenger1.getBaggages());
+// console.log(Passenger1.getBaggages());
 
 //--As passsenger, I have a ticket -- worked
 //add ticket to passenger before display it
 Passenger1.addTicket(ticket1)
-console.log(Passenger1.getTicket())
+// console.log(Passenger1.getTicket())
 
 
 
@@ -335,13 +335,13 @@ console.log(Passenger1.getTicket())
 // As an airline manager, I want to add add employee-- worked
 airlineManager.addManagedEmployee(flightCrew1, pilot1,)
 //--As an airline manager, I want to get total salary of employee-- worked
-console.log(airlineManager.getEmployeeAllSalary());
+// console.log(airlineManager.getEmployeeAllSalary());
 
 
 // Date method----
 
 //-- get date object detail -- worked
-console.log(jan14.getDate())
+// console.log(jan14.getDate())
 
 
 
@@ -351,6 +351,6 @@ console.log(jan14.getDate())
 schedule1.setDepartureDate([jan14])
 
 //-- see detial of a scheduled flight -- worked
-console.log(schedule1.getScheduleDetails());
+// console.log(schedule1.getScheduleDetails());
 
 console.log(flight1);
